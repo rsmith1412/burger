@@ -1,7 +1,7 @@
 var connection = require("../config/connection.js");
 
 // Helper function for SQL syntax.
-function selectAll(num) {
+function selectAll() {
   var arr = [];
 
   for (var i = 0; i < num; i++) {
@@ -12,7 +12,19 @@ function selectAll(num) {
 }
 
 // Helper function for SQL syntax.
-function objToSql(ob) {
+function insertOne() {
+  var arr = [];
+
+  for (var key in ob) {
+    if (Object.hasOwnProperty.call(ob, key)) {
+      arr.push(key + "=" + ob[key]);
+    }
+  }
+
+  return arr.toString();
+}
+
+function updateOne() {
   var arr = [];
 
   for (var key in ob) {
